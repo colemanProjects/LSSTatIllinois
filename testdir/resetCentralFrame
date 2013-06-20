@@ -1,0 +1,3 @@
+rm -f uploads/*
+cp uploads_backup/* uploads/
+chmod uo+r uploads/*

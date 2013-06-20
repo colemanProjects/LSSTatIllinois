@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+<body>
+<p>Testing in progress</p>
+<img src="uploads/centralFrameImage.jpg" name="centImg" style="display: none;"/>
+<script>
+var wth = document.centImg.height;
+alert('height = '+wth);
+
+function initArray(default_value) {
+	arr = [];
+	for (var i=0; i<256; i++) { arr[i] = default_value;}
+	return arr;
+}
+
+var rvals = initArray(0)
+var gvals = initArray(0)
+var bvals = initArray(0)
+
+</script>
+</body>
+</html>

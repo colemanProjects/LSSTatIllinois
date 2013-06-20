@@ -1,0 +1,58 @@
+*********************************
+@author: Neelan L. Coleman
+@mentor: Jon J. Thaler & John C. Hart
+@institution: University of Illinois at Urbana-Champaign
+@start: June 2012 - May 2013
+*********************************
+This server is a prototype for a web version of the astronautical viewing software 'ds9'.
+It is being written as an open source tool for use on the LSST Visualization team.
+It currently features smooth panning and zooming on input images as well as color contrast adjustment. 
+The server display system makes use of the IIpimage gigapixel viewer. (found at iipimage.sourceforge.net)
+
+********************************* Implementation *********************************
+The server system is written in a combination of html + php,javascript, and python.
+In general, it is composed of a sidebar on the right, a footer at the bottom, a menu bar for navigating, and a central frame (iframe) for displaying the image. 
+The image in the central frame is typically displayed using a tiled tiff format with blocksize 256x256.
+PHP:
+php is used for file upload and the web page layout. 
+index.php - the main page for lsst.cs.illinois.edu
+style.css - the stylesheet for lsst.cs.illinois.edu (used within index.php)
+upload_file.php - script for uploading files
+uploadPage.html - page allowing users to upload images that are stored in the central frame
+histogram.html  - page that displays the histogram data for the image in the central frame
+includes/  - includes all php files used for the main page
+testdir/  - directory storing files used for testing during development
+pics/	  - directory storing pics used for development
+uploads/  - directory storing the most current uploaded images. Used by code pertaining to central frame image
+uploads_backup/ - directory storing backup files for the uploads directory. e.g. Default pics to display
+
+python:
+fitsToTiff.py - converts fits images to tiled Tiff Images
+gethistogram.py - returns the color histogram for pixels in an image
+
+javascript:
+fcgi-bin - directory where the iipimage server is run for viewing the central frame image
+d3	 - javascript library for displaying histograms
+iipmooviewer-1.1/ - directory storing code for the iipmooviewer(client) for the central frame image.
+
+********************************* USE *********************************
+The client would simpy visit lsst.cs.illinois.edu in a browser.
+The client would upload an image of their choosing (png,tiled tiff, fits,jpg, or giff). 
+The image would then be displayed in the central frame on the page. 
+Zooming can be done by clicking the '+' button on the mini navigation window inoside the central from, overlayed on the image. 
+Panning can be done by clicking and dragging the image itself.
+The color contrast can be changed by sliding the grey bar on the bottom of the image to the left or right. 
+
+********************************* ENHANCEMENT *********************************
+There are many more features to be improved and added. 
+1. The image is currently stored in an intermediate step as a png image. This causes loss in color depth. 
+2. The color contrast bar needs a better location. It currently hides a portion of the image
+3. The color contrast bar needs to allow a smooth and gradual contrast change instead of sticking 
+4. The histogram feature currently does not display a proper histogram
+5. Many other additional features will come into play later!
+
+
+
+
+
+

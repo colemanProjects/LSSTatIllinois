@@ -1,0 +1,37 @@
+This is Simply a file containin useful notes for how the system is setup, run or used. Navigate to the appropriate section for guidance. If all else fails feel free to contact Neelan Coleman at neelan.coleman@gmail.com. 
+
+
+************	Setup/Configuration	************
+
+
+
+
+
+
+
+
+
+
+************		Usage		************
+
+
+
+
+
+
+
+
+
+
+
+************	Examples/Tests		************
+
+server-status test:
+	- test whether the apache server is set up correctly and mod_fastcgi is installed
+	- type url to server base directory with 'server-status' appended at the end
+		e.g:	if the public server is 'lsst.cs.illinois.edu'
+			type 'lsst.cs.illinois.edu/server-status' into a browser
+		result:	It should say Apache Server Status for lsst.cs.illinois.edu in bold
+			under that you may see "Server Version:Apache/2....."
+			on the same line as "Server Version:" youshould see something about
+			mod_fastcgi. It's common to see php and it's version as well.	 

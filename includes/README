@@ -1,0 +1,14 @@
+This folder contains the php files for the components of the ds9 Website
+
+the breakdown is as follows:
+
+website exclusive:
+- nav.php = navigation bar for the website
+- header.php = the header title for the website
+
+ds9 window exclusive:
+- menuBar.php = the menu bar for the ds9 gui. starting with file... going horizontally
+- dataDisplay.php = the section below the menu bar that displays data for the image
+- buttonsBar.php = bar of buttons beginning with "file" going horizontally
+- centralFrame.php = the main window that displays the picture
+- colorBar.php = the bar displaying the color scale for the image being used

@@ -1,0 +1,238 @@
+body {
+background-color:#111131;
+font-family: georgia,sans-serif;
+color:#aaa;
+margin:0;
+padding:0;
+}
+
+#wrapper {
+width:1060px;
+margin:0 auto;
+border-left:1px solid #ccc;
+border-right:1px solid #ccc;
+}
+
+#header {
+width:1060px;
+height:70px;
+margin:0 auto;
+margin-bottom:25px;
+border-bottom:1px solid #ccc;
+border-top:1px solid #ccc;
+text-align: center;
+}
+
+#header h2 {
+padding:10px;
+}
+
+#nav {
+width:1060px;
+height:40px;
+border-bottom:1px solid #ccc;
+}
+
+#nav a {
+display:inline;
+padding:1px;
+text-decoration:none;
+background-color:#111131;
+font-family: georgia,sans-serif;
+color:#aaa;
+}
+
+#nav a:hover {
+background-color:#1f1f3f;
+height:80px;
+}
+
+#content {
+width:825px;
+height:925px;
+float:left;
+padding:1px;
+background-color:#fcf5fc;
+font-family: Times New Roman,sans-serif;
+font-size: .9em;
+color:#000;
+}
+
+/*********************** menuBar ****************************/
+#menuBar {
+width:100%;
+height:4%;
+border-bottom:1px solid #aaa;
+margin-left: auto;
+margin-right: auto;
+margin-bottom:0;
+margin-top:0;
+}
+
+#menuBar ul {
+Text-decoration: none;
+outline: none;
+border: 0px none transparent;
+list-style-type: none;
+list-style: none;
+margin:0;
+padding:0;
+}
+
+#menuBar li {
+display:inline;
+Text-decoration: none;
+outline: none;
+}
+
+#menuBar a {
+padding:1px;
+
+text-decoration:none;
+background-color:#f1f1f1;
+font-family: Times New Roman,sans-serif;
+color:#000;
+}
+
+#menuBar a:hover {
+background-color:#bababa;
+height:80px;
+}
+
+/*********************** dataDisplay ****************************/
+#dataDisplay {
+margin:0;
+margin-bottom:3px;
+padding:0;
+width:100%;
+height:15%;
+padding:1px;
+border-bottom:1px solid #aaa;
+}
+
+#dataDisplay li{
+margin:0;
+padding:0;
+display:inline-block;
+list-style-type: none;
+list-style: none;
+vertical-align: top;
+}
+/* left most section */
+#statHeaders {
+width:15%;
+height:100%;
+}
+#statHeaders ul{
+margin:0;
+padding:0;
+overflow:auto;
+}
+#statHeaders li{
+display:block;
+}
+
+#statDisplay{
+height:100%;
+width:40%;
+}
+
+/* section containing stat boxes */
+#statDisplay input{
+background-color:#faf8f8;
+border-top:1px solid #ccc;
+border-left:1px solid #ccc;
+border-bottom:1px solid #ccc;
+border-right:1px solid #ccc;
+margin-bottom:.5px;
+height:12.5px;
+}
+
+#File_box, #Object_box{
+width:90%;
+}
+
+#WCS_boxes,#Physical_boxes, #Image_boxes, #Frame_1_boxes{
+margin:0;
+padding:0;
+}
+
+#WCS_boxes li, #Physical_boxes li, #Image_boxes li, #Frame_1_boxes li{
+display:inline;
+padding:0;
+margin:0;
+}
+
+input.smallBox{
+width:30%;
+}
+
+
+/* zoomed versions of the central frame*/
+#leftPic{
+height:100%;
+width:20%;
+border:1px solid #aaa;
+}
+
+#rightPic{
+height:100%;
+width:20%;
+border:1px solid #aaa;
+}
+
+
+/*********************** centralFrame ****************************/
+#centralFrame{
+width:99%;
+height:75%;
+padding:0;
+margin:0;
+border-right:2px solid #aaa;
+border-bottom:2px solid #aaa;
+border-left:2px solid #aaa;
+border-top:2px solid #aaa;
+margin-left: auto;
+margin-right: auto;
+}
+
+/*********************** buttonsBar ****************************/
+#sidebar {
+width:219px;
+height:100%;
+float:left;
+margin-bottom:25px;
+margin-left:10px;
+}
+
+#sidebar a {
+text-decoration:none;
+}
+
+#sidebar li {
+list-style:none;
+}
+#uploadFrame {
+float:left;
+}
+#histogramFrame {
+float:left;
+background-color:#ffffff;
+}
+
+
+/*********************** footer ****************************/
+#footer {
+clear:both;
+width:1060px;
+height:135px;
+border-top:1px solid #ccc;
+}
+
+#footer iframe {
+
+padding:none;
+}
+#footer p {
+padding:10px;
+}

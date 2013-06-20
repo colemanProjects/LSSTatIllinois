@@ -1,0 +1,17 @@
+<div id="toolbar">
+
+	<a href="#">File</a>
+	<a href="#">Edit</a>
+	<a href="#">View</a>
+	<a href="#">Frame</a>
+	<a href="#">Bin</a>
+	<a href="#">Zoom</a>
+	<a href="#">Scale</a>
+	<a href="#">Color</a>
+	<a href="#">Region</a>
+	<a href="#">WCS</a>
+	<a href="#">Analysis</a>
+	<a href="#">Help</a>
+
+
+</div> <!-- end #toolbar -->

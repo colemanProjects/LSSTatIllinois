@@ -1,0 +1,20 @@
+#some histogram code 
+
+
+
+#first read in the image
+
+
+#parse image data into buffer
+
+
+#draw canvas
+
+
+#insert pixel data on canvas
+
+
+#enable highlighting/other features
+
+
+#push settings to 
