@@ -36,6 +36,7 @@ d3	 - javascript library for displaying histograms
 iipmooviewer-1.1/ - directory storing code for the iipmooviewer(client) for the central frame image.
 
 ********************************* USE *********************************
+All changes should be committed to git@github.com:colemanProjects/LSSTatIllinois.git
 The client would simpy visit lsst.cs.illinois.edu in a browser.
 The client would upload an image of their choosing (png,tiled tiff, fits,jpg, or giff). 
 The image would then be displayed in the central frame on the page. 
