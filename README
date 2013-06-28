@@ -36,7 +36,26 @@ d3	 - javascript library for displaying histograms
 iipmooviewer-1.1/ - directory storing code for the iipmooviewer(client) for the central frame image.
 
 ********************************* USE *********************************
+Git:
 All changes should be committed to git@github.com:colemanProjects/LSSTatIllinois.git
+Note!: the git repository expects to communicate using root access permissions. The following commands require the user in to be listed in the sudoers file. 
+append 'sudo' to the start of all of the following examples(sudo git clone ... instead of git clone ...).
+)
+	when collaborating on this project the workflow should go as follows:
+	clone the git repository to your workspace
+		- git clone git@github.com:colemanProjects/LSSTatIllinois.git [your repository]
+	make changes where desired
+		- e.g. vim README.txt...(<i> testing... <esc> <shift+:> <x> <enter>
+	add modified file to the staging process. 
+		- git add README
+
+	commit all changes into a local commit object
+		- git commit -m "any message e.g.: test commit"
+	
+	when done push changes to the remote repository
+		- git push [remote repo-name] [branch-name] 
+		- e.g. default is : git push origin master
+	
 The client would simpy visit lsst.cs.illinois.edu in a browser.
 The client would upload an image of their choosing (png,tiled tiff, fits,jpg, or giff). 
 The image would then be displayed in the central frame on the page. 

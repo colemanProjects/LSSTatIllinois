@@ -1,4 +1,6 @@
-First set up git. I need to figure out how to either push the current git repo, or submit a pull request
-
+1.First set up git. I need to figure out how to either push the current git repo, or submit a pull request
+2. Restructure webpage
+3. generate histogram data using javascript
+4. display histogram using mootools and possibly d3
 
 Now I need to get the Image Histogram up and running before our meeting friday

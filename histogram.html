@@ -1,23 +1,63 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
     "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
-<body>
-<p>Testing in progress</p>
-<img src="uploads/centralFrameImage.jpg" name="centImg" style="display: none;"/>
-<script>
-var wth = document.centImg.height;
-alert('height = '+wth);
+	<head>
+		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="hist_style.css" />
+	</head>
+	<body>
+		<script>
+			//test
+			//get imageHistogram
+			var data = new Array(60);
+			var x=0;
+			for(x=0; x<60; x++)
+			{
+				if(x <30)	
+				{
+					data[x] = x%30;
+				}
+				else
+				{
+					data[x] = (60 - x);
+				}
+			}
+			//bar chart
+//			var w = 20,
+//			h = 80;
+//			var x = d3.scale.linear()
+//			 .domain([0, 1])
+//			 .range([0, w]);
+			
+//			var y = d3.scale.linear()
+//			.domain([0, 100])
+//			.rangeRound([0, h]);
+			   
+			chart = d3.select("body").append("div")
+			.attr("class", "chart");
+//			.attr("width", w * data.length - 1)
+//			.attr("height", h);
 
-function initArray(default_value) {
-	arr = [];
-	for (var i=0; i<256; i++) { arr[i] = default_value;}
-	return arr;
-}
+//			chart.selectAll("rect")
+//			  .data(data)
+////			  .enter().append("rect")
+//			  .attr("x", function(d, i) { return x(i) - .5; })
+//			  .attr("y", function(d) { return h - y(d.value) - .5; })
+//			  .attr("width", w)
+//			  .attr("height", function(d) { return y(d.value); });
+			
+			chart.selectAll("div")
+				.data(data)
+				.enter().append("div")
+				.style("width", function(d) { return d * 4 + "px"; })
+				.text(function(d) { return d; });
+		</script>
+		<!--p>Testing in progress, if you see these then d3 is not loaded</p>-->
+		<script>d3.selectAll("p").style("color", "white");</script>
+		<img src="uploads/centralFrameImage.jpg" name="centImg" style="display: none;"/>
+		<script>
+			document.images["centImg"].
+		</script>
+	</body>
 
-var rvals = initArray(0)
-var gvals = initArray(0)
-var bvals = initArray(0)
-
-</script>
-</body>
 </html>
