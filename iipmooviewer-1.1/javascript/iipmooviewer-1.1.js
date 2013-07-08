@@ -760,11 +760,6 @@ var IIP = new Class({
   createContrastBar: function(){
 	var contrastbarcontainer = $("contrastBar") || alert("no contrast bar found"); 
 	contrastbarcontainer.set('html','<div id="handle"></div>');
-//	contrastbarcontainer.setStyle('background-color', '#ff0000');
-//	$("handle").setStyle('background-color', '#0000ff');
-//	$("handle").setStyle('height', '10px');
-//	$("handle").setStyle('width', '50px');
-	
 
 	var mySlider = new Slider(contrastbarcontainer,$("handle"),{
 	initialStep: 1,
@@ -772,7 +767,7 @@ var IIP = new Class({
   	wheel: true,
 	steps: 100,
     	snap: true,
-	onComplete: function(step) {
+	onChange: function(step) {
 	userDefContrast = step;
 	$("handle").set('html',step);
 	iip.refresh();
