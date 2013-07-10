@@ -7,14 +7,14 @@ padding:0;
 }
 
 #wrapper {
-width:1060px;
+width:1260px;
 margin:0 auto;
 border-left:1px solid #ccc;
 border-right:1px solid #ccc;
 }
 
 #header {
-width:1060px;
+width:1260px;
 height:70px;
 margin:0 auto;
 margin-bottom:25px;
@@ -28,7 +28,7 @@ padding:10px;
 }
 
 #nav {
-width:1060px;
+width:1260px;
 height:40px;
 border-bottom:1px solid #ccc;
 }
@@ -48,7 +48,7 @@ height:80px;
 }
 
 #content {
-width:825px;
+width:875px;
 height:925px;
 float:left;
 padding:1px;
@@ -198,7 +198,7 @@ margin-right: auto;
 
 /*********************** buttonsBar ****************************/
 #sidebar {
-width:219px;
+width:370px;
 height:100%;
 float:left;
 margin-bottom:25px;
@@ -209,23 +209,31 @@ margin-left:10px;
 text-decoration:none;
 }
 
+#otherOptions {
+border:10px solid #ccc;
+}
 #sidebar li {
 list-style:none;
 }
 #uploadFrame {
 float:left;
 }
+#histogramContainer {
+float:left;
+}
+
 #histogramFrame {
 float:left;
-background-color:#ffffff;
-height:300px;
+background-color:#eee;
+height:420px;
+width:360px;
 }
 
 
 /*********************** footer ****************************/
 #footer {
 clear:both;
-width:1060px;
+width:1260px;
 height:135px;
 border-top:1px solid #ccc;
 }
