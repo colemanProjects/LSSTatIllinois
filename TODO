@@ -1,6 +1,18 @@
+ACTIVE
+
+***********Create y axis that shows the scale***********
+Make high knob and low knob start apart from each other
+Insert a picture or animation in between the two knobs
+Connect the slider bar to the actual central frame
+	- make sliders do what they are supposed to do
+	- speed up the load time for displaying histogram
+Get rid of rgb histograms and do floating point instead
+Restructure webpage
+Redownload server code and rebuild it. (Document) 
+
+DONE
 1.First set up git. I need to figure out how to either push the current git repo, or submit a pull request
 2. Restructure webpage
 3. generate histogram data using javascript
 4. display histogram using mootools and possibly d3
-
-Now I need to get the Image Histogram up and running before our meeting friday
+5. Now I need to get the Image Histogram up and running before our meeting friday

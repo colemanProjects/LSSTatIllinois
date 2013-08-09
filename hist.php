@@ -90,6 +90,11 @@
                         .range([height, 0])
                         .nice();
                     //window.alert(y(-255));
+
+                    var yAxis = d3.svg.axis()
+                        .scale(y)
+                        .tickSize(10,5,1)
+                        .orient("left");
                     
                     var xAxis = d3.svg.axis()
                         .scale(x)
@@ -121,7 +126,7 @@
 
                //var svg = d3.select("body").append("svg")
                var svg = d3.select(knobDiv).append("svg")
-                    .attr("width", width)
+                    .attr("width", width + 100)
                     .attr("id", svgName + "svg")
                     .attr("height", height + margin.top + margin.bottom)
                     .append("g");
@@ -129,7 +134,7 @@
                document.getElementById(knobDiv.id).appendChild(lowknob);
                document.getElementById(knobDiv.id).appendChild(highknob);
                 
-                    // contrast bar
+                    // lowknob contrast bar
                     new Slider($(svgName + "svg"),$(lowknob.id), {
                         range: [0, 255],
                         initialStep: 14,
@@ -141,10 +146,10 @@
                       }
                   });
 
-                    // contrast bar
+                    // highknob contrast bar
                     new Slider($(svgName + "svg"),$(highknob.id), {
-                        range: [0, 255],
-                        initialStep: 200,
+                        range: [255, 0],
+                        initialStep: 0,
                         wheel: true,
                         snap: false,
                         steps: 256,
@@ -157,7 +162,7 @@
                         .data(data)
                         .enter().append("g")
                         .attr("class", "bar")
-                        .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+                        .attr("transform", function(d) { return "translate(" + x(d.x + 50) + "," + y(d.y) + ")"; });
                     
                     bar.append("rect")
                         .attr("x", 1)
@@ -172,10 +177,16 @@
                         .attr("text-anchor", "middle")
                         .text(function(d) { return formatCount(d.y); });
                 */
+					//append the x an dy axes
                     svg.append("g")
                         .attr("class", "x axis")
-                        .attr("transform", "translate(0," + height + ")")
+                        .attr("transform", "translate(50," + height + ")")
                         .call(xAxis);
+
+                    svg.append("g")
+                        .attr("class", "axis")
+                        .attr("transform", "translate(" + 50 + ",0)")
+                        .call(yAxis);
 
                     d3.selectAll("axisElement")
                         .classed("small-font", true);
