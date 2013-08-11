@@ -220,13 +220,14 @@ float:left;
 }
 #histogramContainer {
 float:left;
+height:400px;
+width:360px;
 }
 
 #histogramFrame {
-float:left;
 background-color:#eee;
-height:420px;
-width:360px;
+height:100%;
+width:100%;
 }
 
 

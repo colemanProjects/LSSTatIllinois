@@ -9,7 +9,7 @@
 <!--	<li><h3 id="otherOptions">Other options are on their way!</h3></li> -->
  	</ul>
 
-    <div id = "histogramContainer"><iframe id = "histogramFrame" src="hist.php"></iframe></div>
+    <div id = "histogramContainer"><iframe id = "histogramFrame" src="hist.php" scrolling="no"></iframe></div>
  
 </div> <!-- end #sidebar -->
 

@@ -4,7 +4,7 @@ list-style-type: none;
 
 .histogram {
 height: 140px;
-width: 500px;
+width: 400px;
 }
 
 .histogram svg {
@@ -15,12 +15,11 @@ position: absolute;
 position:absolute !important;
 background-color: red;
 width: 5px;
-height: 100px;
+height: 300px;
 }
 
 .highknob {
 position:relative;
 background-color: greenyellow;
 width: 5px;
-height: 100px;
 }

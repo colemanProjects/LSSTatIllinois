@@ -30,6 +30,12 @@
                 
             <!--histogram helper functions-->
             <script>
+				//change of base function for log
+				function log10(val)
+				{
+					return Math.log(val)/Math.LN10;
+				}
+
                 //returns the four color channels, red, green, blue, and alpha
                 function splitImgByColorChannel(imgData){
                     
@@ -53,10 +59,10 @@
                     return colorChannels;
                 }
 
-                //display histogram for a given color channel
+                //function that displays histogram for a given color channel
                 function displayHistogram(channelName, channel){
                     
-                    // compute the array of values to be placed in histogram bin
+                    // convert array of values to a map, and do out of bounds check
                     var values = d3.range(channel.length).map(function(x){//grab pixel data from the input img. imgData
                                                             if(channel[x] > 255) 
                                                                 {
@@ -67,74 +73,85 @@
                                                             {
                                                                 return channel[x];
                                                             }});
-                    // A formatter for counts.
-                    var formatCount = d3.format(",.0f");
+					//margin calculations
+                    var margin = {top: 10, right: 30, bottom: 30, left: 40},
+                        width = 300,
+                        height = 340 - margin.top - margin.bottom;
+			   		var histogramTopMargin = 10;
 
-                    var margin = {top: 10, right: 30, bottom: 30, left: 30},
-                        width = 370 - margin.left - margin.right,
-                        height = 140 - margin.top - margin.bottom;
-
+					//create x  scale based on bin count
                     var bins = 256;
                     var x = d3.scale.linear()
                         .domain([0, bins -1])
                         .range([0, width]);
 
-                    // Generate a histogram using twenty uniformly-spaced bins.
+                    // Generate a histogram array by counting frequencies from the map of pixel values
                     var data = d3.layout.histogram()
-                        .bins(x.ticks(100))
+                        .bins(x.ticks(255))
                         (values);
 
+					//get largest frequency count and largest possible log for log scale
+					var maxHistBucket = d3.max(data, function(d) { return d.y; });
+					var largestLog = Math.pow(10,Math.ceil(log10(maxHistBucket)));
+
+					//create y scale based on the max value in the pixel map
                     var y = d3.scale.log()
                         .clamp(true)
                         .domain([0.01, d3.max(data, function(d) { return d.y; })])
-                        .range([height, 0])
+                        .rangeRound([height, 0])
                         .nice();
-                    //window.alert(y(-255));
-
-                    var yAxis = d3.svg.axis()
-                        .scale(y)
-                        .tickSize(10,5,1)
-                        .orient("left");
                     
+					//create x and y axis formats
                     var xAxis = d3.svg.axis()
                         .scale(x)
                         .tickSize(0,5,1)
-                        .tickValues([0,Math.round(bins/4),Math.round(bins/2),Math.round(3*bins/4),Math.round(bins)])
+                        .tickValues([0,50,100,150,200,255])
                         .orient("bottom");
+                    var yAxis = d3.svg.axis()
+                        .scale(y)
+                        .tickSize(10,5,1)
+                        .tickValues([1,10,100,1000,10000,largestLog])
+                        .orient("left");
 
-                    //create text to modify and knob for contrast bar
-                 //       document.createElement('<div id="fontSize">Change the value, to change the font size.</div>');
+													/* Display*/
+
+
+			   //create div for both histogram and add it to the page
                var svgName = channelName + "Histogram";
+               var histogramDiv =  document.createElement("div");
+               histogramDiv.id = svgName;
+               histogramDiv.className = "histogram";
+               histogramDiv.style.width = "100%";
+               histogramDiv.style.height = height;
+               histogramDiv.style.background = "#eee";
+               histogramDiv.style.marginTop = "10px";
+               document.body.appendChild(histogramDiv);
 
-               var lowknob =  document.createElement("div");
-               var highknob =  document.createElement("div");
-
-               lowknob.id = channelName + "lowknob";
-               highknob.id = channelName + "highknob";
-
-               lowknob.className = "lowknob";
-               highknob.className = "highknob";
-
-               var knobDiv =  document.createElement("div");
-               knobDiv.id = svgName;
-               knobDiv.className = "histogram";
-               knobDiv.style.width = width - "370px";
-               knobDiv.style.height = "140px";
-               knobDiv.style.background = "#eee";
-
-               document.body.appendChild(knobDiv);
-
-               //var svg = d3.select("body").append("svg")
-               var svg = d3.select(knobDiv).append("svg")
-                    .attr("width", width + 100)
+			   //add the histogram to the div 
+               var svg = d3.select(histogramDiv).append("svg")
+                    .attr("width", "100%" )
                     .attr("id", svgName + "svg")
                     .attr("height", height + margin.top + margin.bottom)
                     .append("g");
-                   // .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-               document.getElementById(knobDiv.id).appendChild(lowknob);
-               document.getElementById(knobDiv.id).appendChild(highknob);
+
+               //create slider knobs to go in the div and on  top of the histogram
+               var lowknob =  document.createElement("div");
+               lowknob.id = channelName + "lowknob";
+               lowknob.className = "lowknob";
+               lowknob.style.height = (height + histogramTopMargin) + "px";
+               lowknob.style.marginLeft = (margin['left']) + "px";
+
+               var highknob =  document.createElement("div");
+               highknob.id = channelName + "highknob";
+               highknob.className = "highknob";
+               highknob.style.height = (height + histogramTopMargin) + "px";
+               highknob.style.marginLeft = (margin['left']) + "px";
+
+			   //add the knobs to the histogram div
+               document.getElementById(histogramDiv.id).appendChild(lowknob);
+               document.getElementById(histogramDiv.id).appendChild(highknob);
                 
-                    // lowknob contrast bar
+                    // create slider oject for lowknob
                     new Slider($(svgName + "svg"),$(lowknob.id), {
                         range: [0, 255],
                         initialStep: 14,
@@ -146,7 +163,7 @@
                       }
                   });
 
-                    // highknob contrast bar
+                    // create slider oject for highknob
                     new Slider($(svgName + "svg"),$(highknob.id), {
                         range: [255, 0],
                         initialStep: 0,
@@ -158,36 +175,31 @@
                       }
                   });
 
+                    // translate,name, and arrang all bars for the histogram
                     var bar = svg.selectAll(".bar")
                         .data(data)
                         .enter().append("g")
                         .attr("class", "bar")
-                        .attr("transform", function(d) { return "translate(" + x(d.x + 50) + "," + y(d.y) + ")"; });
+                        .attr("transform", function(d) { return "translate(" + (x(d.x) + margin['left']) + "," + (y(d.y)+ histogramTopMargin) + ")"; });
                     
+                    // assign rectangles to each bar
                     bar.append("rect")
                         .attr("x", 1)
                         .attr("fill", channelName)
                         .attr("width", x(data[0].dx) - 1)
                         .attr("height", function(d) { return height - y(d.y); });
 
-                 /*   bar.append("text")
-                        .attr("dy", ".75em")
-                        .attr("y", 6)
-                        .attr("x", x(data[0].dx) / 2)
-                        .attr("text-anchor", "middle")
-                        .text(function(d) { return formatCount(d.y); });
-                */
-					//append the x an dy axes
+					//append the x and y axes to the histogram
                     svg.append("g")
                         .attr("class", "x axis")
-                        .attr("transform", "translate(50," + height + ")")
+                        .attr("transform", "translate(" + margin['left'] + "," + (height + margin['top'])  +  ")")
                         .call(xAxis);
-
                     svg.append("g")
                         .attr("class", "axis")
-                        .attr("transform", "translate(" + 50 + ",0)")
+                        .attr("transform", "translate(" + margin['left'] + ","+ margin['top'] +")")
                         .call(yAxis);
 
+					//make the text small for axis text
                     d3.selectAll("axisElement")
                         .classed("small-font", true);
                 }
@@ -215,8 +227,8 @@
 
                 //display histogram for each channel
                     displayHistogram("red", red);
-                    displayHistogram("green", green);
-                    displayHistogram("blue", blue);
+                    //displayHistogram("green", green);
+                   // displayHistogram("blue", blue);
                 }
             </script>
             </li>
