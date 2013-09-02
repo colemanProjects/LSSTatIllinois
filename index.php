@@ -3,6 +3,7 @@
  
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+   <meta name="keywords" content="IIPImage Ajax Internet Imaging Protocol IIP Zooming Streaming High Resolution Mootools"/>
 <!-- header for iipmooviewer-->
 
 <!-- header for lsst.cs.illinois.edu-->
@@ -16,7 +17,7 @@
 	<title>SaoImage Ds9 Web</title>
 	<script src="jquery-ui-1.10.2.custom/js/jquery-1.9.1.js"></script> 
 	<script src="d3/d3.v3.min.js"></script> 
-	</head>
+</head>
 	    <body>
 	        <div id="wrapper">
 	<?php include('includes/header.php'); ?>

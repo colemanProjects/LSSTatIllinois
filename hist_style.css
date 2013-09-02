@@ -2,24 +2,56 @@
 list-style-type: none;
 }
 
+.sliderContainer{
+margin-left:40px;
+height: 340px;
+}
+
 .histogram {
 height: 140px;
-width: 400px;
 }
 
 .histogram svg {
 float: center;
 position: absolute;
 }
+
+.Histogramsvg {
+}
+
 .lowknob{
-position:absolute !important;
 background-color: red;
 width: 5px;
-height: 300px;
+height: 310px;
+color:darkred;
+float:left;
+position:absolute;
+}
+
+.lowknobText{
+text-color:#8B0333;
+font-size:15px;
+margin-left:5px;
+margin-top:50px;
+}
+
+.divider{
+float:left;
+background-color: black;
+opacity:0.5;
+width: 30px;
+height:200px;
+margin-top:110px;
 }
 
 .highknob {
-position:relative;
 background-color: greenyellow;
 width: 5px;
+height: 310px;
+color:green;
+}
+
+.highknobText{
+margin-left:20px;
+font-size:15px;
 }

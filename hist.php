@@ -74,20 +74,22 @@
                                                                 return channel[x];
                                                             }});
 					//margin calculations
-                    var margin = {top: 10, right: 30, bottom: 30, left: 40},
-                        width = 300,
-                        height = 340 - margin.top - margin.bottom;
-			   		var histogramTopMargin = 10;
+                    var margin = {top: 10, right: 30, bottom: 30, left: 40};
+
+                    //(Math.ceil(barWidth/numSteps - knobWidth/numSteps) * numSteps) + knobWidth
+                    var width = (Math.ceil(300/256 - 5/256)* 256) + 5;
+                    var histogramWidth = (Math.ceil(300/256 - 5/256)* 256) + 5;
+                    var  height = 340 - margin.top - margin.bottom;
 
 					//create x  scale based on bin count
                     var bins = 256;
                     var x = d3.scale.linear()
-                        .domain([0, bins -1])
+                        .domain([0, bins ])
                         .range([0, width]);
 
                     // Generate a histogram array by counting frequencies from the map of pixel values
                     var data = d3.layout.histogram()
-                        .bins(x.ticks(255))
+                        .bins(x.ticks(256))
                         (values);
 
 					//get largest frequency count and largest possible log for log scale
@@ -116,62 +118,70 @@
 													/* Display*/
 
 
-			   //create div for both histogram and add it to the page
+			   //create div for histogram and add it to the page
                var svgName = channelName + "Histogram";
                var histogramDiv =  document.createElement("div");
                histogramDiv.id = svgName;
                histogramDiv.className = "histogram";
-               histogramDiv.style.width = "100%";
+               histogramDiv.style.width = histogramWidth + 'px';//(width + 10) + "px";
                histogramDiv.style.height = height;
-               histogramDiv.style.background = "#eee";
-               histogramDiv.style.marginTop = "10px";
+               histogramDiv.style.marginTop = margin['top'];
                document.body.appendChild(histogramDiv);
 
 			   //add the histogram to the div 
                var svg = d3.select(histogramDiv).append("svg")
-                    .attr("width", "100%" )
+                    .attr("class", "Histogramsvg")
                     .attr("id", svgName + "svg")
                     .attr("height", height + margin.top + margin.bottom)
+                    .attr("width", width + margin.left + margin.right + 100)
                     .append("g");
 
-               //create slider knobs to go in the div and on  top of the histogram
+			   //create container for slider 
+               var sliderContainer =  document.createElement("div");
+               sliderContainer.id = channelName + "sliderContainer";
+               sliderContainer.className = "sliderContainer";
+			   sliderContainer.style.width = (histogramWidth) + "px";
+
+               //create slider knobs to go in the div and on top of the histogram
                var lowknob =  document.createElement("div");
                lowknob.id = channelName + "lowknob";
                lowknob.className = "lowknob";
-               lowknob.style.height = (height + histogramTopMargin) + "px";
-               lowknob.style.marginLeft = (margin['left']) + "px";
+
+               var divider =  document.createElement("div");
+               divider.id = channelName + "knobDivider";
+               divider.className = "divider";
 
                var highknob =  document.createElement("div");
                highknob.id = channelName + "highknob";
                highknob.className = "highknob";
-               highknob.style.height = (height + histogramTopMargin) + "px";
-               highknob.style.marginLeft = (margin['left']) + "px";
 
 			   //add the knobs to the histogram div
-               document.getElementById(histogramDiv.id).appendChild(lowknob);
-               document.getElementById(histogramDiv.id).appendChild(highknob);
+               document.getElementById(histogramDiv.id).appendChild(sliderContainer);
+               document.getElementById(sliderContainer.id).appendChild(lowknob);
+               document.getElementById(sliderContainer.id).appendChild(divider);
+               document.getElementById(sliderContainer.id).appendChild(highknob);
                 
                     // create slider oject for lowknob
-                    new Slider($(svgName + "svg"),$(lowknob.id), {
+               var lowSlider =     new Slider($(sliderContainer.id),$(lowknob.id), {
                         range: [0, 255],
-                        initialStep: 14,
-                        wheel: true,
-                        snap: false,
+                        wheel: false,
                         steps: 256,
                         onChange: function(step) {
-                        $(lowknob.id).set('html',step);
+                        $(lowknob.id).set('html','<div id = "lowknobText" class= "lowknobText">' + '(' + step + ',' + data[step].length + ')' + '</div>');
+						document.getElementById(divider.id).style.width = (parseInt(highknob.style.left) - parseInt(lowknob.style.left)) + "px";
+						document.getElementById(divider.id).style.marginLeft = lowknob.style.left;
                       }
                   });
 
                     // create slider oject for highknob
-                    new Slider($(svgName + "svg"),$(highknob.id), {
-                        range: [255, 0],
-                        initialStep: 0,
+                 var highSlider=   new Slider($(sliderContainer.id),$(highknob.id), {
+                        range: [0, 255],
                         wheel: true,
-                        snap: false,
                         steps: 256,
                         onChange: function(step) {
-                        $(highknob.id).set('html',step);
+                        $(highknob.id).set('html','<div id = "highknobText" class= "highknobText">' + '(' + step + ',' + data[step].length + ')' + '</div>');
+						document.getElementById(divider.id).style.width = (parseInt(highknob.style.left) - parseInt(lowknob.style.left)) + "px";
+						document.getElementById(divider.id).style.marginLeft = lowknob.style.left;
                       }
                   });
 
@@ -180,7 +190,7 @@
                         .data(data)
                         .enter().append("g")
                         .attr("class", "bar")
-                        .attr("transform", function(d) { return "translate(" + (x(d.x) + margin['left']) + "," + (y(d.y)+ histogramTopMargin) + ")"; });
+                        .attr("transform", function(d) { return "translate(" + (x(d.x) + margin['left']) + "," + (y(d.y)+ margin['top']) + ")"; });
                     
                     // assign rectangles to each bar
                     bar.append("rect")
@@ -202,6 +212,10 @@
 					//make the text small for axis text
                     d3.selectAll("axisElement")
                         .classed("small-font", true);
+
+				//knob and divider interaction
+				highSlider.set(255);
+				divider.style.width = (parseInt(highknob.style.left) - parseInt(lowknob.style.left)) + "px";
                 }
             </script>
 
