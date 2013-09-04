@@ -1,0 +1,153 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Mootools Slider : With two knobs and range indicator</title>
+<link rel="stylesheet" href="css/slider.css" />
+<style>
+body {
+	margin:25px;
+	font-family:"trebuchet MS", Tahoma;
+	font-size:13px;
+	border:1px solid #cfcfcf;
+	padding:20px;
+}
+.clearfix {
+	clear:both;
+	display:block;
+}
+.text {
+	color:#555555;
+}
+</style>
+<h1>Mootools Slider with Range Indicator V.2.20 (Version using Clipped Image) </h1>
+<p><strong>Changes in this version 2.20:</strong><br />
+1. There was major issue with the earlier versions ( as kindly pointed out by Wanlee -in comment #9), where  setting smaller values of the ’start’ and ‘end’ made the clipping wonky. This issues has been fixed in this version .<br />
+Wanlee also made an observation that , both sliders end up with the same  value and that it would be nice to make the max slider stop at the next number  greater than the min slider  instead of the sliders  butting up together. Well! I did think of trying to do this, but now  I personally feel that, they must have the same values. what say? </p>
+<p>2. On Wanlee's and Brian's request , I did add the Snap and Slider Steps option .... but it is still requires some fine tuning ( which I have been trying hard) and still has soe issues... Avoid using this feature, if possible .... if you desperately need the slide step feature, do use in care ... play around with the CSS and JS a bit to achive your desired results ... If you find a fix , do let us know!</p>
+<strong>Changes in this version 2.11:</strong><br />
+1. Added feature to slide in defined number of steps ( check the third expamle)
+	(There are issues with this implemention, so if you donot need sliding in steps , use version 2.1)
+<br/><br/>
+<strong>Changes in this version 2.1:</strong><br />
+1. Fixed the first time crossing of Min Knob over Max Knob <br/><br/>
+<strong>Changes in this version 2:</strong><br />
+1. Slider uses and absolutely palced CLIPPED image ( Slider gutter range) to indicate the slider range , instead of a division with background image
+2. The  Min and Max Slider Knobs are restricted from crossing over each other <br/>
+<strong>Advantage of this version:-</strong>Now you can have a range Image, that can indicate range with its Color too … What I mean is for eg. you could have an image with green,orange and red areas, so the selected range will indiate the nature of the range selected as well. <strong>Disadvantage :</strong> The slider image is shown with its full width , until the complete Script is loaded.
+<!-- Start Slider with two  knobs-->
+<div class="slider_outer" >
+  <h3>Mootols Slider with two knobs ( Minimum and Maximum Knobs)</h3>
+  <div class="slide_container" >
+    <div id="slider_minmax_min"  class="floatl fontblue"> </div>
+    <div class="slider_gutter" id="minmax_slider" >
+      <div id="slider_minmax_gutter_l" class="slider_gutter_item iconsprite_controls"></div>
+      <div id="slider_minmax_gutter_m" class="slider_gutter_item gutter iconsprite_controls">
+        <!--        <div id="slider_gutter_bkg_minmax" class="slider_gutter_bkg"></div>
+-->
+        <img id="slider_bkg_img" src="images/bkg_slider.gif"/>
+        <div id="slider_minmax_minKnobA" class="knob"></div>
+        <div id="slider_minmax_maxKnobA" class="knob"></div>
+      </div>
+      <div id="slider_minmax_gutter_r" class="slider_gutter_item iconsprite_controls"> </div>
+    </div>
+    <div id="slider_minmax_max" class="floatl fontblue"> </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+<!-- End Slider with two  knobs-->
+<br/>
+</br>
+<!-- Start  Slider with one knob -->
+<div class="slider_outer" >
+  <h3>Mootols Slider with one knob</h3>
+  <div class="fontblue" id="slider_current_val"></div>
+  <div class="slide_container" >
+    <div class="slider_gutter" id="slider_1" >
+      <div class="slider_gutter_l slider_gutter_item iconsprite_controls"></div>
+      <div id="slider_gutter_1" class="slider_gutter_m slider_gutter_item gutter iconsprite_controls">
+        <!--       <div id="slider_gutter_bkg_1" class="slider_gutter_bkg"></div>
+-->
+        <img id="slider_bkg_img_1" src="images/bkg_slider.gif"/>
+        <div id="slider_knob_1" class="knob"></div>
+      </div>
+      <div class="slider_gutter_r slider_gutter_item iconsprite_controls"> </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+<!-- End  Slider with one knob -->
+<br/>
+</br>
+<!-- Start  Slider with one knob -->
+<div class="slider_outer" >
+
+  <h3>Slide Steps: Mootols Slider with one knob and defined number of Steps</h3>
+  <div class="fontblue" id="slider_current_val_2"></div>
+  <div class="slide_container" >
+    <div class="slider" id="slider_C" >
+      <div class="slider_gutter_l slider_gutter_item"></div>
+      <div id="slider_gutter_C" class="slider_gutter_C slider_gutter_item">
+        <!--       <div id="slider_gutter_bkg_1" class="slider_gutter_bkg"></div>
+-->
+        <img id="slider_bkg_img_C" src="images/bkg_slider.gif"/>
+        <div id="slider_knob_C" class="knob"></div>
+      </div>
+      <div class="slider_gutter_r slider_gutter_item"> </div>
+    </div>
+	    <div class="clearfix"></div>
+
+  </div>
+</div>
+<!-- End  Slider with one knob -->
+<script type="text/javascript" src="mootools12_all_p.js"></script>
+<script type="text/javascript" src="slider.js"></script>
+<script type="text/javascript" >
+
+// ON LOAD 
+window.addEvent('domready', function() {
+	var mySlideA = new Slider($('slider_minmax_gutter_m'), $('slider_minmax_minKnobA'),$('slider_bkg_img'), {
+		start: 0,
+		end: 5,
+		offset:8,
+		snap:false,
+		onChange: function(pos){$('slider_minmax_min').setHTML('min '+pos.minpos);$('slider_minmax_max').setHTML('max '+pos.maxpos);}
+	}, $('slider_minmax_maxKnobA')).setMin(2).setMax(3);
+	
+	var mySlideB = new Slider($('slider_gutter_1'), $('slider_knob_1'), $('slider_bkg_img_1'),{
+		start: 0,
+		end: 120,
+		offset: 10,
+		onChange: function(pos){
+			$('slider_current_val').setHTML(pos + ' inches');
+			
+		}
+	}, null).setMin(100);
+	$('slider_current_val').setHTML(100 + ' inches');
+	
+	// In this slilder example silder moves 10 steps with an increament of 15 in every step
+	var mySlideC = new Slider($('slider_gutter_C'), $('slider_knob_C'), $('slider_bkg_img_C'),{
+		start: 0,
+		end: 150,
+		offset:0,
+		snap:true, 
+		numsteps:10,
+		onChange: function(pos){
+			$('slider_current_val_2').setHTML(pos + ' inches');
+			
+		}
+	}, null).setMin(30);
+	$('slider_current_val_2').setHTML(30 + ' inches');
+
+});
+
+
+</script>
+<br/>
+<br/>
+<strong><a href="http://developer.expressionz.in/blogs/wp-content/plugins/download-monitor/download.php?id=12">Download this slider v2.20 sourcefiles</a></strong>
+<hr/>
+The stuff below is for display and anlytics only, and is not required for the actual demo 
+<iframe src="http://developer.expressionz.in/downloads/demo_footer/demo_footer.html" frameborder="0" height="100" width="100%" ></iframe>
+</body></html>

@@ -30,11 +30,11 @@
                 
             <!--histogram helper functions-->
             <script>
-				//change of base function for log
-				function log10(val)
-				{
-					return Math.log(val)/Math.LN10;
-				}
+        //change of base function for log
+        function log10(val)
+        {
+          return Math.log(val)/Math.LN10;
+        }
 
                 //returns the four color channels, red, green, blue, and alpha
                 function splitImgByColorChannel(imgData){
@@ -73,7 +73,7 @@
                                                             {
                                                                 return channel[x];
                                                             }});
-					//margin calculations
+          //margin calculations
                     var margin = {top: 10, right: 30, bottom: 30, left: 40};
 
                     //(Math.ceil(barWidth/numSteps - knobWidth/numSteps) * numSteps) + knobWidth
@@ -81,7 +81,7 @@
                     var histogramWidth = (Math.ceil(300/256 - 5/256)* 256) + 5;
                     var  height = 340 - margin.top - margin.bottom;
 
-					//create x  scale based on bin count
+          //create x  scale based on bin count
                     var bins = 256;
                     var x = d3.scale.linear()
                         .domain([0, bins ])
@@ -92,18 +92,18 @@
                         .bins(x.ticks(256))
                         (values);
 
-					//get largest frequency count and largest possible log for log scale
-					var maxHistBucket = d3.max(data, function(d) { return d.y; });
-					var largestLog = Math.pow(10,Math.ceil(log10(maxHistBucket)));
+          //get largest frequency count and largest possible log for log scale
+          var maxHistBucket = d3.max(data, function(d) { return d.y; });
+          var largestLog = Math.pow(10,Math.ceil(log10(maxHistBucket)));
 
-					//create y scale based on the max value in the pixel map
+          //create y scale based on the max value in the pixel map
                     var y = d3.scale.log()
                         .clamp(true)
                         .domain([0.01, d3.max(data, function(d) { return d.y; })])
                         .rangeRound([height, 0])
                         .nice();
                     
-					//create x and y axis formats
+          //create x and y axis formats
                     var xAxis = d3.svg.axis()
                         .scale(x)
                         .tickSize(0,5,1)
@@ -115,10 +115,10 @@
                         .tickValues([1,10,100,1000,10000,largestLog])
                         .orient("left");
 
-													/* Display*/
+                          /* Display*/
 
 
-			   //create div for histogram and add it to the page
+         //create div for histogram and add it to the page
                var svgName = channelName + "Histogram";
                var histogramDiv =  document.createElement("div");
                histogramDiv.id = svgName;
@@ -128,7 +128,7 @@
                histogramDiv.style.marginTop = margin['top'];
                document.body.appendChild(histogramDiv);
 
-			   //add the histogram to the div 
+         //add the histogram to the div 
                var svg = d3.select(histogramDiv).append("svg")
                     .attr("class", "Histogramsvg")
                     .attr("id", svgName + "svg")
@@ -136,11 +136,11 @@
                     .attr("width", width + margin.left + margin.right + 100)
                     .append("g");
 
-			   //create container for slider 
+         //create container for slider 
                var sliderContainer =  document.createElement("div");
                sliderContainer.id = channelName + "sliderContainer";
                sliderContainer.className = "sliderContainer";
-			   sliderContainer.style.width = (histogramWidth) + "px";
+         sliderContainer.style.width = (histogramWidth) + "px";
 
                //create slider knobs to go in the div and on top of the histogram
                var lowknob =  document.createElement("div");
@@ -155,7 +155,7 @@
                highknob.id = channelName + "highknob";
                highknob.className = "highknob";
 
-			   //add the knobs to the histogram div
+         //add the knobs to the histogram div
                document.getElementById(histogramDiv.id).appendChild(sliderContainer);
                document.getElementById(sliderContainer.id).appendChild(lowknob);
                document.getElementById(sliderContainer.id).appendChild(divider);
@@ -168,8 +168,8 @@
                         steps: 256,
                         onChange: function(step) {
                         $(lowknob.id).set('html','<div id = "lowknobText" class= "lowknobText">' + '(' + step + ',' + data[step].length + ')' + '</div>');
-						document.getElementById(divider.id).style.width = (parseInt(highknob.style.left) - parseInt(lowknob.style.left)) + "px";
-						document.getElementById(divider.id).style.marginLeft = lowknob.style.left;
+            document.getElementById(divider.id).style.width = (parseInt(highknob.style.left) - parseInt(lowknob.style.left)) + "px";
+            document.getElementById(divider.id).style.marginLeft = lowknob.style.left;
                       }
                   });
 
@@ -180,8 +180,8 @@
                         steps: 256,
                         onChange: function(step) {
                         $(highknob.id).set('html','<div id = "highknobText" class= "highknobText">' + '(' + step + ',' + data[step].length + ')' + '</div>');
-						document.getElementById(divider.id).style.width = (parseInt(highknob.style.left) - parseInt(lowknob.style.left)) + "px";
-						document.getElementById(divider.id).style.marginLeft = lowknob.style.left;
+            document.getElementById(divider.id).style.width = (parseInt(highknob.style.left) - parseInt(lowknob.style.left)) + "px";
+            document.getElementById(divider.id).style.marginLeft = lowknob.style.left;
                       }
                   });
 
@@ -199,7 +199,7 @@
                         .attr("width", x(data[0].dx) - 1)
                         .attr("height", function(d) { return height - y(d.y); });
 
-					//append the x and y axes to the histogram
+          //append the x and y axes to the histogram
                     svg.append("g")
                         .attr("class", "x axis")
                         .attr("transform", "translate(" + margin['left'] + "," + (height + margin['top'])  +  ")")
@@ -209,13 +209,13 @@
                         .attr("transform", "translate(" + margin['left'] + ","+ margin['top'] +")")
                         .call(yAxis);
 
-					//make the text small for axis text
+          //make the text small for axis text
                     d3.selectAll("axisElement")
                         .classed("small-font", true);
 
-				//knob and divider interaction
-				highSlider.set(255);
-				divider.style.width = (parseInt(highknob.style.left) - parseInt(lowknob.style.left)) + "px";
+        //knob and divider interaction
+        highSlider.set(255);
+        divider.style.width = (parseInt(highknob.style.left) - parseInt(lowknob.style.left)) + "px";
                 }
             </script>
 

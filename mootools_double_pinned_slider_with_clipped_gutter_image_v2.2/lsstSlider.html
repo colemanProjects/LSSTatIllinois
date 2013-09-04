@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Mootools Slider : With two knobs and range indicator</title>
+<link rel="stylesheet" href="css/slider.css" />
+<body>
+<!-- Start Slider with two  knobs-->
+<div class="histogram" >
+
+  <div class="slider_container" >
+    <div id="slider_minmax_min"  class="floatl fontblue"> </div>
+    <div class="slider_gutter" id="minmax_slider" >
+      <div id="slider_minmax_gutter_l" class="slider_gutter_item iconsprite_controls"></div>
+      <div id="slider_minmax_gutter_m" class="slider_gutter_item gutter iconsprite_controls">
+        <img id="slider_bkg_img" src="images/bkg_slider.gif"/>
+        <div id="lowKnob" class="knob"></div>
+        <div id="highKnob" class="knob"></div>
+      </div>
+      <div id="slider_minmax_gutter_r" class="slider_gutter_item iconsprite_controls"> </div>
+    </div>
+    <div id="slider_minmax_max" class="floatl fontblue"> </div>
+    <div class="clearfix"></div>
+  </div>
+
+</div>
+<!-- End Slider with two  knobs-->
+
+<script type="text/javascript" src="mootools12_all_p.js"></script>
+<script type="text/javascript" src="slider.js"></script>
+<script type="text/javascript" >
+
+// ON LOAD 
+window.addEvent('domready', function() {
+	var mySlider = new Slider($('slider_minmax_gutter_m'), $('lowKnob'),$('slider_bkg_img'), {
+		start: 0,
+		end: 255,
+		offset:8,
+		snap:true,
+		onChange: function(pos){$('slider_minmax_min').setHTML('min '+pos.minpos);$('slider_minmax_max').setHTML('max '+pos.maxpos);}
+	}, $('highKnob')).setMin(0).setMax(230);
+	
+});
+
+
+</script>
+</body></html>

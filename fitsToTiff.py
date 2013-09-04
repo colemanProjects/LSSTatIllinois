@@ -23,7 +23,7 @@ outputImg = Image.fromarray(imageData)
 outputImg.convert('RGB').save('out.png') 
 histogram = outputImg.convert('RGB').histogram()
 for pixel in histogram:
-	print pixel
+  print pixel
 
 hdulist.close()
 
