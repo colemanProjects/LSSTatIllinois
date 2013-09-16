@@ -782,6 +782,10 @@ var IIP = new Class({
   onChange: function(pos){
   var hello = pos.minpos; 
 	userDefContrast = hello;
+  if( $('target') != null){
+	  iip.refresh();
+	  iip.requestImages();
+  }
 
   $('slider_minmax_min').setHTML('min '+pos.minpos);$('slider_minmax_max').setHTML('max '+pos.maxpos);}
 }, $('highKnob')).setMin(0).setMax(230);
