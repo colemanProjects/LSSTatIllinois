@@ -774,6 +774,18 @@ var IIP = new Class({
 	iip.requestImages();
 	}
 });
+  var mySlider = new Slider($('slider_minmax_gutter_m'), $('lowKnob'),$('slider_bkg_img'), {
+  start: 0,
+  end: 255,
+  offset:8,
+  snap:true,
+  onChange: function(pos){
+  var hello = pos.minpos; 
+	userDefContrast = hello;
+
+  $('slider_minmax_min').setHTML('min '+pos.minpos);$('slider_minmax_max').setHTML('max '+pos.maxpos);}
+}, $('highKnob')).setMin(0).setMax(230);
+
 		/*$("#slider").slider({
 		min:-255,
 		max: 255,

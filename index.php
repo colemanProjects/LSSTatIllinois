@@ -17,9 +17,7 @@
   <link rel="stylesheet" type="text/css" media="all" href="iipmooviewer-1.1/css/iip.css" />
   <link rel="shortcut icon" href="iipmooviewer-1.1/images/iip-favicon.png" />
   <title>IIPMooViewer 1.1 :: IIPImage High Resolution Ajax Image Streaming Viewer</title>
-
-  <script type="text/javascript" src="iipmooviewer-1.1/javascript/mootools-1.2-core-compressed.js"></script>
-  <script type="text/javascript" src="iipmooviewer-1.1/javascript/mootools-1.2-core-compressed.js"></script>
+  <script type="text/javascript" src="mootools_double_pinned_slider_with_clipped_gutter_image_v2.2/mootools12_all_p.js"></script>
   <script type="text/javascript" src="iipmooviewer-1.1/javascript/mootools-1.2-more-compressed.js"></script>
   <script type="text/javascript" src="iipmooviewer-1.1/javascript/iipmooviewer-1.1.js"></script>
 

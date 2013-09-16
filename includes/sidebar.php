@@ -8,8 +8,8 @@
     <li><h3>Image Histogram</h3></li>
 <!--	<li><h3 id="otherOptions">Other options are on their way!</h3></li> -->
  	</ul>
-
-   <div id = "histogramContainer"><div id = "histogramFrame"></div></div>
+     <div id = "histogramContainer"><div id = "histogramFrame"> <?php include('lsstSlider.php'); ?>
+</div></div>
  
 </div> <!-- end #sidebar -->
 

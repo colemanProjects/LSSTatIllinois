@@ -14,7 +14,7 @@ body:{ font-family:Verdana, Arial, Helvetica, sans-serif;}
 #minmax_slider{ width:380px; margin:0px 100px;}
 
 .slider_gutter{width:150px; margin:10px 0px 0px 0px; }
-.slider_gutter_m{width:140px;margin-left:-150px;	height:300px; background:url(../images/slider_rptr.gif) repeat-x;}
+.slider_gutter_m{width:140px;margin-left:-15px;	height:300px; background:url(../images/slider_rptr.gif) repeat-x;}
 
 /*.slider_gutter_bkg{ position: absolute; background:url(../images/bkg_slider.gif) repeat-x; height:8px; margin:6px 0px 0px -10px; width:374px; clip:rect(0, 20px, 0, 20px)}
 */
