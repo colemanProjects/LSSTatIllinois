@@ -230,6 +230,10 @@ background-color:#eee;
 height:100%;
 width:100%;
 }
+.slider_container{
+position:absolute;
+z-index:10;
+}
 
 
 /*********************** footer ****************************/

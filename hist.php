@@ -54,8 +54,5 @@
              // displayHistogram("blue", blue);
           }
       </script>
-      <div id="slider">
-      <?php include 'lsstSlider.php'; ?>
-      </div>
     </body>
 </html>
