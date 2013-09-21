@@ -781,7 +781,7 @@ var IIP = new Class({
   snap:true,
   onChange: function(pos){
   var hello = pos.minpos; 
-	userDefContrast = hello;
+  userDefContrast = hello;
   if( $('target') != null){
 	  iip.refresh();
 	  iip.requestImages();
