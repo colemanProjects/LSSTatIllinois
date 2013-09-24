@@ -7,27 +7,26 @@ body:{ font-family:Verdana, Arial, Helvetica, sans-serif;}
 
 .slider_outer{margin: 10px; border:1px solid #e6e6e6; padding:5px;}
 .slider_gutter {float: left;width: 100%;display: block;position: relative; }
-.slider_gutter_item{position: relative;	float: left; left: 100%;}
+.slider_gutter_item{position: relative; float: left; left: 100%;}
 #slider_minmax_gutter_l, .slider_gutter_l{width: 10px;margin-left:-100%; height:20px;background:url(../images/slider_l.gif) no-repeat; }
-#slider_minmax_gutter_m{width: 360px;margin-left:-370px;	height:300px; background:url(../images/slider_rptr.gif) repeat-x;}
-#slider_minmax_gutter_r,.slider_gutter_r{width: 10px;margin-left:-15px;height:20px; 	background:url(../images/slider_r.gif) no-repeat; border:1px }
+#slider_minmax_gutter_m{width: 360px;margin-left:-370px;  height:300px; background:url(../images/slider_rptr.gif) repeat-x;}
+#slider_minmax_gutter_r,.slider_gutter_r{width: 10px;margin-left:-15px;height:20px;   background:url(../images/slider_r.gif) no-repeat; border:1px }
 #minmax_slider{ width:380px; margin:0px 100px;}
 
 .slider_gutter{width:150px; margin:10px 0px 0px 0px; }
-.slider_gutter_m{width:140px;margin-left:-15px;	height:300px; background:url(../images/slider_rptr.gif) repeat-x;}
+.slider_gutter_m{width:140px;margin-left:-150px;  height:300px; background:url(../images/slider_rptr.gif) repeat-x;}
 
 /*.slider_gutter_bkg{ position: absolute; background:url(../images/bkg_slider.gif) repeat-x; height:8px; margin:6px 0px 0px -10px; width:374px; clip:rect(0, 20px, 0, 20px)}
-*/
+ * */
 .slider_gutter_bkg{ height:280px; }
-.knob {	position: absolute;	height: 275px;width: 5px;cursor: pointer;}
+.knob { position: absolute; height: 275px;width: 5px;cursor: pointer;}
 #highKnob{
-		  background-color:yellowgreen;
+      background-color:yellowgreen;
 }
 #lowKnob{
-		  background-color:red;
+      background-color:red;
 }
 /* For Clip */
 
 #slider_bkg_img{position: absolute; height:275px; margin:6px 0px 0px -10px; width:374px; opacity:.2}
 #slider_bkg_img_1{position: absolute; height:275px; margin:6px 0px 0px 0px; width:200px;}
-
