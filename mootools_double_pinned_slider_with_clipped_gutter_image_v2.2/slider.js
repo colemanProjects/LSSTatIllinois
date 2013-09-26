@@ -86,7 +86,7 @@ var Slider = new Class({
 			this.maxPreviousChange = -1;
 			this.maxPreviousEnd = -1;
 			this.maxstep = this.options.end;
-			this.maxknob.setStyle('position', 'relative').setStyle(this.p, + this.max - this.options.offset).setStyle('bottom', this.options.knobheight);
+			this.maxknob.setStyle('position', 'relative').setStyle(this.p, + this.max - this.options.offset).setStyle('bottom', this.options.knobheight - 5);
 		}
 		var lim = {};
 		//status = this.z

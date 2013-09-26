@@ -780,8 +780,8 @@ var IIP = new Class({
   offset:8,
   snap:true,
   onChange: function(pos){
-  var hello = pos.minpos; 
-  userDefContrast = hello;
+  var avContrast = 10/(pos.maxpos - pos.minpos) * 100; 
+  userDefContrast = avContrast;
   if( $('target') != null){
 	  iip.refresh();
 	  iip.requestImages();

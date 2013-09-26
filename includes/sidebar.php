@@ -9,7 +9,6 @@
 <!--	<li><h3 id="otherOptions">Other options are on their way!</h3></li> -->
  	</ul>
      <div id = "histogramContainer"><div id = "histogramFrame"> 
-<?php include('lsstSlider.php');?>
  <canvas id="secondCanvas" width="1600" height="1200" style="display:none; border:1px solid #d3d3d3;">your browser does not support the HTML5 canvas tag.</canvas>
  <img id="myImage" src="uploads/centralFrameImage.jpg" width="1600" height="1200" style="display:none"/>
  <script type="text/javascript" src="displayHist.js"></script>
@@ -41,6 +40,7 @@
        // displayHistogram("blue", blue);
     }
 </script>
+<?php include('lsstSlider.php');?>
 
 </div></div>
  
