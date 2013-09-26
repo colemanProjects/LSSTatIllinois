@@ -755,25 +755,9 @@ var IIP = new Class({
   },
 
 
-  /* Create our color contrast bar
+  /* Create our color contrast bar as a double pinned slider
   */
   createContrastBar: function(){
-	var contrastbarcontainer = $("contrastBar") || alert("no contrast bar found"); 
-	contrastbarcontainer.set('html','<div id="handle"></div>');
-
-	var mySlider = new Slider(contrastbarcontainer,$("handle"),{
-	initialStep: 1,
-	range: [1, 255],
-  	wheel: true,
-	steps: 100,
-    	snap: true,
-	onChange: function(step) {
-	userDefContrast = step;
-	$("handle").set('html',step);
-	iip.refresh();
-	iip.requestImages();
-	}
-});
   var mySlider = new Slider($('slider_minmax_gutter_m'), $('lowKnob'),$('slider_bkg_img'), {
   start: 0,
   end: 255,

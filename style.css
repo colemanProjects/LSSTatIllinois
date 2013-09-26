@@ -7,14 +7,14 @@ padding:0;
 }
 
 #wrapper {
-width:1530px;
+width:1450px;
 margin:0 auto;
 border-left:1px solid #ccc;
 border-right:1px solid #ccc;
 }
 
 #header {
-width:1530px;
+width:1450px;
 height:70px;
 margin:0 auto;
 margin-bottom:25px;
@@ -28,7 +28,7 @@ padding:10px;
 }
 
 #nav {
-width:1530px;
+width:1450px;
 height:40px;
 border-bottom:1px solid #ccc;
 }
@@ -222,7 +222,7 @@ float:left;
 #histogramContainer {
 float:left;
 height:360px;
-width:580px;
+width:500px;
 }
 
 #histogramFrame {
@@ -230,16 +230,20 @@ background-color:#eee;
 height:100%;
 width:100%;
 }
+.bar rect
+{
+fill:#77aaff;
+}
+
 .slider_container{
 position:absolute;
 z-index:10;
 }
 
-
 /*********************** footer ****************************/
 #footer {
 clear:both;
-width:1530px;
+width:1450px;
 height:135px;
 border-top:1px solid #ccc;
 }

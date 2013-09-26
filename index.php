@@ -63,7 +63,7 @@
   <div id="content">
     <?php include('includes/menuBar.php'); ?>
     <?php include('includes/dataDisplay.php'); ?>
-    <?php include('includes/centralFrame.php'); ?>
+    <?php include('includes/centralFrame.php');?>
   </div> 
   <?php include('includes/sidebar.php'); ?>
   <?php include('includes/footer.php'); ?>

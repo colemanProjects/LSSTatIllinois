@@ -22,13 +22,13 @@ body:{ font-family:Verdana, Arial, Helvetica, sans-serif;}
 .slider_gutter_bkg{ }
 .knob { position: absolute; height: 275px;width: 5px;cursor: pointer;}
 #highKnob{
-      background-color:yellowgreen;
+      background-color:lightgrey;
 }
 #lowKnob{
-      background-color:red;
+      background-color:darkblue;
       top:5px;
 }
 /* For Clip */
 
-#slider_bkg_img{position: absolute; height:275px; margin:6px 0px 0px -10px; width:494px; opacity:.2}
+#slider_bkg_img{position: absolute; top: 220px; height:55px; margin:6px 0px 0px -10px; width:494px; opacity:.4}
 #slider_bkg_img_1{position: absolute; height:275px; margin:6px 0px 0px 0px; width:200px;}
