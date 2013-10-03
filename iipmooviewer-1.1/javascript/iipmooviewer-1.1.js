@@ -351,7 +351,6 @@ var IIP = new Class({
       k = i + (j*xtiles);
 
       // Iterate over the number of layers we have
-     //NEELAN EDIT HERE  window.alert(this.images[0]);
       var n;
       for(n=0;n<this.images.length;n++){
 
@@ -374,6 +373,10 @@ var IIP = new Class({
 	// We set the source at the end so that the 'load' function is properly fired
         var src = this.server+"?FIF="+this.images[n].src+"&cnt="+this.contrast+"&sds="+this.images[n].sds+"&jtl="+this.res+"," + k;
 	tile.set( 'src', src );
+        console.log(tile);
+        //window.alert(tile);
+        //tile.onload(window.alert(tile.
+        //window.alert(tile.src);
         tile.injectInside('target');
       }
       
@@ -758,21 +761,32 @@ var IIP = new Class({
   /* Create our color contrast bar as a double pinned slider
   */
   createContrastBar: function(){
-  var mySlider = new Slider($('slider_minmax_gutter_m'), $('lowKnob'),$('slider_bkg_img'), {
+  //get references to elements from parent page
+  var targetFrame = $('targetframe');
+  var myDocument = targetFrame.getParent('html');
+  var sidebar = parent.document.getElementById('sidebar');
+  var sliderMiddle  = parent.document.getElementById('slider_minmax_gutter_m');
+  var lowKnob = parent.document.getElementById('lowKnob');
+  var highKnob = parent.document.getElementById('highKnob');
+  var bkgImg  = parent.document.getElementById('slider_bkg_img');
+
+  var mySlider = new Slider(sliderMiddle,lowKnob,bkgImg, {
   start: 0,
   end: 255,
   offset:8,
   snap:true,
   onChange: function(pos){
-  var avContrast = 10/(pos.maxpos - pos.minpos) * 100; 
-  userDefContrast = avContrast;
-  if( $('target') != null){
-	  iip.refresh();
-	  iip.requestImages();
-  }
+    var avContrast = 10/(pos.maxpos - pos.minpos) * 100; 
+    userDefContrast = avContrast;
+    if( $('target') != null){
+      iip.refresh();
+      iip.requestImages();
+    }
 
-  $('slider_minmax_min').setHTML('min '+pos.minpos);$('slider_minmax_max').setHTML('max '+pos.maxpos);}
-}, $('highKnob')).setMin(0).setMax(230);
+   // $('slider_minmax_min').setHTML('min '+pos.minpos);$('slider_minmax_max').setHTML('max '+pos.maxpos);
+  }
+ 
+}, highKnob).setMin(0).setMax(255);
 
 		/*$("#slider").slider({
 		min:-255,

@@ -1,7 +1,7 @@
 <? xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
  
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html id="lsst_web" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
      <meta name="keywords" content="IIPImage Ajax Internet Imaging Protocol IIP Zooming Streaming High Resolution Mootools"/>
   <!-- header for lsst.cs.illinois.edu-->
@@ -14,10 +14,10 @@
     <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 
   <!-- header for mooviewer-->
-  <link rel="stylesheet" type="text/css" media="all" href="iipmooviewer-1.1/css/iip.css" />
+<!--  <link rel="stylesheet" type="text/css" media="all" href="iipmooviewer-1.1/css/iip.css" />
   <link rel="shortcut icon" href="iipmooviewer-1.1/images/iip-favicon.png" />
   <title>IIPMooViewer 1.1 :: IIPImage High Resolution Ajax Image Streaming Viewer</title>
-  <script type="text/javascript" src="mootools_double_pinned_slider_with_clipped_gutter_image_v2.2/mootools12_all_p.js"></script>
+ <script type="text/javascript" src="mootools_double_pinned_slider_with_clipped_gutter_image_v2.2/mootools12_all_p.js"></script>
   <script type="text/javascript" src="iipmooviewer-1.1/javascript/mootools-1.2-more-compressed.js"></script>
   <script type="text/javascript" src="iipmooviewer-1.1/javascript/iipmooviewer-1.1.js"></script>
 
@@ -48,7 +48,7 @@
     });
   </script>
 
-
+-->
 
 
 

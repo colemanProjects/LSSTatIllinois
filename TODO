@@ -1,3 +1,7 @@
+
+the tiles on the page are simply images fetched from the tiff file that are converted into javascript image elements. 
+need to find out what the 'set function does in javascript image elements. 
+
 ACTIVE
   - need to create correct formula for pixel values. 
   - need to install server again and build it.

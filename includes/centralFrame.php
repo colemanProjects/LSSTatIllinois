@@ -1,3 +1,2 @@
-<div id = "centralFrame">
-  <div style="margin-left:auto;margin-right:auto" id="targetframe"></div>
-</div>
+<iframe id = "centralFrame" src="iipmooviewer-1.1/viewer.html" scrolling="no">
+</iframe>
