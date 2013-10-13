@@ -372,7 +372,8 @@ var IIP = new Class({
 	this.contrast = userDefContrast || 1.0;
 	// We set the source at the end so that the 'load' function is properly fired
         var src = this.server+"?FIF="+this.images[n].src+"&cnt="+this.contrast+"&sds="+this.images[n].sds+"&jtl="+this.res+"," + k;
-	tile.set( 'src', src );
+  var newSrc = this.computeBias(src,0);
+	tile.set( 'src', newSrc );
         console.log(tile);
         //window.alert(tile);
         //tile.onload(window.alert(tile.
@@ -756,7 +757,19 @@ var IIP = new Class({
     this.positionZone();
 
   },
+  /* 
+  * compute the bias on an image and return the new image array havin that bias
+  * 
+  */
+  computeBias: function(imgArray,bias){
 
+  window.alert(imgArray);
+  
+   
+
+
+  return imgArray;
+  },
 
   /* Create our color contrast bar as a double pinned slider
   */
