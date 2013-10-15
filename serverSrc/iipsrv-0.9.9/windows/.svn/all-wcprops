@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svnroot/iipimage/!svn/ver/103/iipsrv/trunk/windows
+END
+Time.cc
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/iipimage/!svn/ver/103/iipsrv/trunk/windows/Time.cc
+END
+Time.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/iipimage/!svn/ver/103/iipsrv/trunk/windows/Time.h
+END
+iipsrv.vcxproj
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/iipimage/!svn/ver/124/iipsrv/trunk/windows/iipsrv.vcxproj
+END
+VS2010_README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/iipimage/!svn/ver/124/iipsrv/trunk/windows/VS2010_README.txt
+END
+iipsrv.sln
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/iipimage/!svn/ver/124/iipsrv/trunk/windows/iipsrv.sln
+END
+iipsrv.vcxproj.filters
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/iipimage/!svn/ver/124/iipsrv/trunk/windows/iipsrv.vcxproj.filters
+END
